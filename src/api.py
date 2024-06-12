@@ -2,8 +2,9 @@
 # This Python API wrapper connects to the IOM's DTM API (https://dtm.iom.int/data-and-analysis/dtm-api) to get data on Internally Displaced Persons (IDPs) in different countries.
 
 import requests
+import pandas as pd
 
-def countryLevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None):
+def countryLevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None, to_pandas:bool = False):
     """
     Get country level data from IOM's DTM API
     
@@ -30,19 +31,19 @@ def countryLevelData(operation:str = "", countryName:str = "", admin0Pcode:str =
         raise  ValueError("Please provide either the countryName or the admin0Pcode")
     
     if countryName != "" and admin0Pcode != "":
-        raise  ValueError()(message="Please provide either the countryName or the admin0Pcode, not both")
+        raise  ValueError("Please provide either the countryName or the admin0Pcode, not both")
     
     if monthFrom_month == None:
-        raise ValueError(message="Please provide the start month of the reporting period (str)") 
+        raise ValueError("Please provide the start month of the reporting period (str)") 
     
     if monthFrom_year == None:
-        raise ValueError(message="Please provide the start year of the reporting period (int)")
+        raise ValueError("Please provide the start year of the reporting period (int)")
     
     if monthTo_month == None:
-        raise ValueError(message="Please provide the end month of the reporting period (str)")
+        raise ValueError("Please provide the end month of the reporting period (str)")
     
     if monthTo_year == None:
-        raise ValueError(message="Please provide the end year of the reporting period (int)")
+        raise ValueError("Please provide the end year of the reporting period (int)")
 
     # The URL for getting admin0 data
     url = "https://dtmapi.iom.int/api/IdpAdmin0Data/GetAdmin0Data"
@@ -71,11 +72,21 @@ def countryLevelData(operation:str = "", countryName:str = "", admin0Pcode:str =
             "to": roundTo
         }
     }
-    return(requests.post(url, json=payload))
+
+    response = requests.post(url, json=payload).json()
+    if to_pandas:
+        if response['statusCode'] == 200:
+            return(pd.DataFrame(response['result']))
+        elif response['statusCode'] == 204:
+            raise ValueError("No data found in the DTM API for the given parameters")
+        else:
+            raise ValueError(response['errorMessages'])
+    else:
+        return(response)
 
 
 
-def admin1LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None):
+def admin1LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None,to_pandas:bool = False):
     """
     Get admin1 level data from IOM's DTM API
     
@@ -102,19 +113,19 @@ def admin1LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = 
         raise  ValueError("Please provide either the countryName or the admin0Pcode")
     
     if countryName != "" and admin0Pcode != "":
-        raise  ValueError()(message="Please provide either the countryName or the admin0Pcode, not both")
+        raise  ValueError("Please provide either the countryName or the admin0Pcode, not both")
     
     if monthFrom_month == None:
-        raise ValueError(message="Please provide the start month of the reporting period (str)") 
+        raise ValueError("Please provide the start month of the reporting period (str)") 
     
     if monthFrom_year == None:
-        raise ValueError(message="Please provide the start year of the reporting period (int)")
+        raise ValueError("Please provide the start year of the reporting period (int)")
     
     if monthTo_month == None:
-        raise ValueError(message="Please provide the end month of the reporting period (str)")
+        raise ValueError("Please provide the end month of the reporting period (str)")
     
     if monthTo_year == None:
-        raise ValueError(message="Please provide the end year of the reporting period (int)")
+        raise ValueError("Please provide the end year of the reporting period (int)")
 
     # The URL for getting admin0 data
     url = "https://dtmapi.iom.int/api/IdpAdmin1Data/GetAdmin1Data"
@@ -143,11 +154,20 @@ def admin1LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = 
             "to": roundTo
         },
     }
-    return(requests.post(url, json=payload))
+    response = requests.post(url, json=payload).json()
+    if to_pandas:
+        if response['statusCode'] == 200:
+            return(pd.DataFrame(response['result']))
+        elif response['statusCode'] == 204:
+            raise ValueError("No data found in the DTM API for the given parameters")
+        else:
+            raise ValueError(response['errorMessages'])
+    else:
+        return(response)
 
 
 
-def admin2LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None):
+def admin2LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None, to_pandas:bool = False):
     """
     Get admin2 level data from IOM's DTM API
     
@@ -174,19 +194,19 @@ def admin2LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = 
         raise  ValueError("Please provide either the countryName or the admin0Pcode")
     
     if countryName != "" and admin0Pcode != "":
-        raise  ValueError()(message="Please provide either the countryName or the admin0Pcode, not both")
+        raise  ValueError("Please provide either the countryName or the admin0Pcode, not both")
     
     if monthFrom_month == None:
-        raise ValueError(message="Please provide the start month of the reporting period (str)") 
+        raise ValueError("Please provide the start month of the reporting period (str)") 
     
     if monthFrom_year == None:
-        raise ValueError(message="Please provide the start year of the reporting period (int)")
+        raise ValueError("Please provide the start year of the reporting period (int)")
     
     if monthTo_month == None:
-        raise ValueError(message="Please provide the end month of the reporting period (str)")
+        raise ValueError("Please provide the end month of the reporting period (str)")
     
     if monthTo_year == None:
-        raise ValueError(message="Please provide the end year of the reporting period (int)")
+        raise ValueError("Please provide the end year of the reporting period (int)")
 
     # The URL for getting admin0 data
     url = "https://dtmapi.iom.int/api/IdpAdmin2Data/GetAdmin2Data"
@@ -215,4 +235,13 @@ def admin2LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = 
             "to": roundTo
         },
     }
-    return(requests.post(url, json=payload))
+    response = requests.post(url, json=payload).json()
+    if to_pandas:
+        if response['statusCode'] == 200:
+            return(pd.DataFrame(response['result']))
+        elif response['statusCode'] == 204:
+            raise ValueError("No data found in the DTM API for the given parameters")
+        else:
+            raise ValueError(response['errorMessages'])
+    else:
+        return(response)
