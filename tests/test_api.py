@@ -1,5 +1,5 @@
 import unittest
-from api import countryLevelData, admin1LevelData, admin2LevelData
+from pydtm.api import countryLevelData, admin1LevelData, admin2LevelData
 
 class TestAPIFunctions(unittest.TestCase):
     

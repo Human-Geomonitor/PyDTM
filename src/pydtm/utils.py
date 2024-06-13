@@ -1,16 +1,18 @@
 import pandas as pd
+from importlib.resources import files
 
 
 ################
 # ISO 3166-1 DATA
 ################
 
+
 def load_ISO3166_data():
     """
     Load the ISO 3166-1 country codes from the CSV file
     """
-    return pd.read_csv("src/data/countries_codes_and_coordinates.csv")
-
+    data = pd.read_csv(files('pydtm.data').joinpath('countries_codes_and_coordinates.csv').read_text())
+    return data
 
 def countryToISO3166_A3(country):
     """

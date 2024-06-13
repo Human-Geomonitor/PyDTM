@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydtm"
+version = "0.0.3"
+authors = [
+  { name="David Gerard", email="david.gerard.23@ucl.ac.uk" },
+]
+description = "A Python library for the IOM DTM API"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "requests",
+  "numpy",
+  "pandas",
+  "importlib",
+]
+
+[project.urls]
+Homepage = "https://github.com/Human-Geomonitor/PyDTM"
+Issues = "https://github.com/Human-Geomonitor/PyDTM/issues"
+
+
+[tool.setuptools.package-data]
+"pydtm.data" = ["*.csv"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
