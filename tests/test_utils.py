@@ -4,18 +4,19 @@ from pydtm.utils import load_ISO3166_data, countryToISO3166_A3, ISO3166_A3ToCoun
 
 class TestAPIFunctions(unittest.TestCase):
     
-    def load_ISO3166_data(self):
+    def test_load_ISO3166_data(self):
         # Test case 1: Check that loading data doesn't raise an exception
-        pass
+        load_ISO3166_data()
         
     
-    def countryToISO3166_A3(self):
+    def test_countryToISO3166_A3(self):
         # Test case 1: Valid parameters
-        pass
+        self.assertEqual(countryToISO3166_A3("Yemen"),"YEM")
         
     
-    def  ISO3166_A3ToCountry(self):
+    def test_ISO3166_A3ToCountry(self):
         # Test case 1: Valid parameters
-        pass  
+        self.assertEqual(ISO3166_A3ToCountry("YEM"),"Yemen")
+
 if __name__ == '__main__':
     unittest.main()
