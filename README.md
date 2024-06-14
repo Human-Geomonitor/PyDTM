@@ -4,7 +4,7 @@ A Python toolkit for [IOM's DTM API](https://dtm.iom.int/data-and-analysis/dtm-a
 
 ## Install
 [PyDTM is avaliable on PyPi](https://pypi.org/project/pydtm/), you can import it into your python environment with:
-`pip install pydtm`
+`pip install pydtm`.
 
 
 ## Overview of the number of samples per countries at each administrative levels.
