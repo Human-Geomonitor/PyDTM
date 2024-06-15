@@ -5,25 +5,35 @@ import requests
 import pandas as pd
 
 def countryLevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None, to_pandas:bool = False):
-    """
-    Get country level data from IOM's DTM API
+    """Get country level data from IOM's DTM API.
     
-    Parameters:
-        - operation (optional) (str): The operation to perform
-        - countryName (str): The name of the country
-        - admin0Pcode (str): The admin0Pcode of the country (ISO 3166-1 alpha-3)
-        - fromDate (optional) (str): The start date of the reporting period (format: "yyyy-mm-dd") 
-        - toDate (optional)(str): The end date of the reporting period (format: "yyyy-mm-dd")
-        - monthFrom_month (str): The start month of the reporting period
-        - monthFrom_year (int): The start year of the reporting period
-        - monthTo_month (str): The end month of the reporting period
-        - monthTo_year (int): The end year of the reporting period
-        - roundFrom (optional) (int): The start round number
-        - roundTo (optional) (int): The end round number
+    :param operation: The operation to perform, default to ""
+    :type operation: str
+    :param countryName: The name of the country, default to "", must not be specified if using admin0Pcode
+    :type countryName: str
+    :param admin0Pcode: The admin0Pcode of the country (ISO 3166-1 alpha-3), default to "", must not be specified if using countryName
+    :type admin0Pcode: str
+    :param fromDate: The start date of the reporting period (format: "yyyy-mm-dd"), optional
+    :type fromDate: str
+    :param toDate: The end date of the reporting period (format: "yyyy-mm-dd"), optional
+    :type toDate: str
+    :param monthFrom_month: The start month of the reporting period, default to None
+    :type monthFrom_month: str
+    :param monthFrom_year: The start year of the reporting period, default to None
+    :type monthFrom_year: int
+    :param monthTo_month: The end month of the reporting period, default to None
+    :type monthTo_month: str
+    :param monthTo_year: The end year of the reporting period, default to None
+    :type monthTo_year: int
+    :param roundFrom: The start round number, default to None, optional
+    :type roundFrom: int
+    :param roundTo: The end round number, default to None, optional
+    :type roundTo: int
+    :param to_pandas: Convert the response to a pandas DataFrame, default to False, optional
+    :type to_pandas: bool
 
-    Returns:
-        - response: The response from the API
-
+    :return: The response from the API
+    :rtype: dict or pandas.DataFrame depending on the value of to_pandas
 
     """
     # Check if all required parameters are provided
@@ -87,25 +97,35 @@ def countryLevelData(operation:str = "", countryName:str = "", admin0Pcode:str =
 
 
 def admin1LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None,to_pandas:bool = False):
-    """
-    Get admin1 level data from IOM's DTM API
+    """Get admin1 level data from IOM's DTM API.
     
-    Parameters:
-        - operation (optional) (str): The operation to perform
-        - countryName (str): The name of the country
-        - admin0Pcode (str): The admin0Pcode of the country (ISO 3166-1 alpha-3)
-        - fromDate (optional) (str): The start date of the reporting period (format: "yyyy-mm-dd") 
-        - toDate (optional)(str): The end date of the reporting period (format: "yyyy-mm-dd")
-        - monthFrom_month (str): The start month of the reporting period
-        - monthFrom_year (int): The start year of the reporting period
-        - monthTo_month (str): The end month of the reporting period
-        - monthTo_year (int): The end year of the reporting period
-        - roundFrom (optional) (int): The start round number
-        - roundTo (optional) (int): The end round number
+    :param operation: The operation to perform, default to ""
+    :type operation: str
+    :param countryName: The name of the country, default to "", must not be specified if using admin0Pcode
+    :type countryName: str
+    :param admin0Pcode: The admin0Pcode of the country (ISO 3166-1 alpha-3), default to "", must not be specified if using countryName
+    :type admin0Pcode: str
+    :param fromDate: The start date of the reporting period (format: "yyyy-mm-dd"), optional
+    :type fromDate: str
+    :param toDate: The end date of the reporting period (format: "yyyy-mm-dd"), optional
+    :type toDate: str
+    :param monthFrom_month: The start month of the reporting period, default to None
+    :type monthFrom_month: str
+    :param monthFrom_year: The start year of the reporting period, default to None
+    :type monthFrom_year: int
+    :param monthTo_month: The end month of the reporting period, default to None
+    :type monthTo_month: str
+    :param monthTo_year: The end year of the reporting period, default to None
+    :type monthTo_year: int
+    :param roundFrom: The start round number, default to None, optional
+    :type roundFrom: int
+    :param roundTo: The end round number, default to None, optional
+    :type roundTo: int
+    :param to_pandas: Convert the response to a pandas DataFrame, default to False, optional
+    :type to_pandas: bool
 
-    Returns:
-        - response: The response from the API
-
+    :return: The response from the API
+    :rtype: dict or pandas.DataFrame depending on the value of to_pandas
 
     """
     # Check if all required parameters are provided
@@ -168,25 +188,35 @@ def admin1LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = 
 
 
 def admin2LevelData(operation:str = "", countryName:str = "", admin0Pcode:str = "", fromDate:str = None, toDate:str = None, monthFrom_month:str = None,monthFrom_year:int = None, monthTo_month:str = None,monthTo_year:str = None, roundFrom:int = None, roundTo:int = None, to_pandas:bool = False):
-    """
-    Get admin2 level data from IOM's DTM API
+    """Get admin2 level data from IOM's DTM API.
     
-    Parameters:
-        - operation (optional) (str): The operation to perform
-        - countryName (str): The name of the country
-        - admin0Pcode (str): The admin0Pcode of the country (ISO 3166-1 alpha-3)
-        - fromDate (optional) (str): The start date of the reporting period (format: "yyyy-mm-dd") 
-        - toDate (optional)(str): The end date of the reporting period (format: "yyyy-mm-dd")
-        - monthFrom_month (str): The start month of the reporting period
-        - monthFrom_year (int): The start year of the reporting period
-        - monthTo_month (str): The end month of the reporting period
-        - monthTo_year (int): The end year of the reporting period
-        - roundFrom (optional) (int): The start round number
-        - roundTo (optional) (int): The end round number
+    :param operation: The operation to perform, default to ""
+    :type operation: str
+    :param countryName: The name of the country, default to "", must not be specified if using admin0Pcode
+    :type countryName: str
+    :param admin0Pcode: The admin0Pcode of the country (ISO 3166-1 alpha-3), default to "", must not be specified if using countryName
+    :type admin0Pcode: str
+    :param fromDate: The start date of the reporting period (format: "yyyy-mm-dd"), optional
+    :type fromDate: str
+    :param toDate: The end date of the reporting period (format: "yyyy-mm-dd"), optional
+    :type toDate: str
+    :param monthFrom_month: The start month of the reporting period, default to None
+    :type monthFrom_month: str
+    :param monthFrom_year: The start year of the reporting period, default to None
+    :type monthFrom_year: int
+    :param monthTo_month: The end month of the reporting period, default to None
+    :type monthTo_month: str
+    :param monthTo_year: The end year of the reporting period, default to None
+    :type monthTo_year: int
+    :param roundFrom: The start round number, default to None, optional
+    :type roundFrom: int
+    :param roundTo: The end round number, default to None, optional
+    :type roundTo: int
+    :param to_pandas: Convert the response to a pandas DataFrame, default to False, optional
+    :type to_pandas: bool
 
-    Returns:
-        - response: The response from the API
-
+    :return: The response from the API
+    :rtype: dict or pandas.DataFrame depending on the value of to_pandas
 
     """
     # Check if all required parameters are provided
