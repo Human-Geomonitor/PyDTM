@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pydtm"
-version = "0.0.8"
+version = "0.0.9"
 authors = [
   { name="David Gerard", email="david.gerard.23@ucl.ac.uk" },
 ]
@@ -25,4 +25,5 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/Human-Geomonitor/PyDTM"
 Issues = "https://github.com/Human-Geomonitor/PyDTM/issues"
+Documentation = "https://pydtm.readthedocs.io/en/latest/index.html"
 
