@@ -1,0 +1,18 @@
+# Read the Docs configuration file for Sphinx projects
+
+# Required
+version: 2
+
+# Set the OS, Python version and other tools you might need
+build:
+  os: posix
+  tools:
+    python: "3.7"
+
+# Build documentation in the "docs/" directory with Sphinx
+sphinx:
+  configuration: docs/conf.py
+
+
+conda:
+  environment: env/environment.yml
