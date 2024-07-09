@@ -9,7 +9,8 @@
 name: Test Python Package Upload
 
 on:
-  [push]
+  release:
+    types: [created]
 
 permissions:
   contents: read
