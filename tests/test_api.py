@@ -12,7 +12,7 @@ class TestAPIFunctions(unittest.TestCase):
     def test_countryLevelData(self):
         # Test case 1: Valid parameters
         response = countryLevelData(admin0Pcode="YEM", monthFrom_month="01", monthFrom_year=2000, monthTo_month="06", monthTo_year=2022)
-        self.assertEqual(response['statusCode'], 201)
+        self.assertEqual(response['statusCode'], 200)
         
         # Test case 2: Invalid parameters (missing required parameter)
         with self.assertRaises(ValueError):
