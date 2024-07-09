@@ -33,3 +33,4 @@ jobs:
       run: |
         pip install pytest pytest-cov
         pytest tests/test_api.py
+        pytest tests/test_utils.py
