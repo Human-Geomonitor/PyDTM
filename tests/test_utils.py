@@ -1,5 +1,10 @@
 import unittest
-from pydtm.utils import load_ISO3166_data, countryToISO3166_A3, ISO3166_A3ToCountry
+
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.pydtm.utils import load_ISO3166_data, countryToISO3166_A3, ISO3166_A3ToCountry
 
 
 class TestAPIFunctions(unittest.TestCase):
