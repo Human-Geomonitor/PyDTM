@@ -1,6 +1,10 @@
 name: Test pydtm  
 on:
-  [push]
+  push:
+    paths:
+      - 'src/**'
+      - 'tests/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
