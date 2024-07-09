@@ -27,7 +27,7 @@ jobs:
 
       - name: Build release distributions
         run: |
-          rm -r dist/ 
+          rm -r /dist/ 
           python -m pip install build
           python -m build
 
