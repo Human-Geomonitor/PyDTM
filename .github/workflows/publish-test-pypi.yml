@@ -18,11 +18,10 @@ permissions:
   contents: read
 
 jobs:
-
   tests: 
     name: Run unit testing ✅❌
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Set up Python
