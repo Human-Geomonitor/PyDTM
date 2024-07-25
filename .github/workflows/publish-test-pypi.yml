@@ -50,6 +50,10 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Change Package Version in docs/source/conf.py and pyproject.toml
+        run: |
+          python update_version.py
+
       - name: Build release distributions
         run: |
           python -m pip install build

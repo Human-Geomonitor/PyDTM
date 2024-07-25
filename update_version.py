@@ -13,10 +13,9 @@ with open('pyproject.toml', 'r+') as pyproject_file:
     pyproject_file.truncate()
 
 # Update conf.py
-with open('docs/conf.py', 'r+') as conf_file:
+with open('docs/source/conf.py', 'r+') as conf_file:
     content = conf_file.read()
     content = re.sub(r'release = ".*"', f'release = "{version}"', content)
-    content = re.sub(r'version = ".*"', f'version = "{version}"', content)
     conf_file.seek(0)
     conf_file.write(content)
     conf_file.truncate()

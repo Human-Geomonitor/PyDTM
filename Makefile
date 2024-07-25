@@ -22,3 +22,7 @@ install_requirements:
 run_tests:
 	@echo "Running tests..."
 	@export PYTHONPATH=. && pytest tests --color yes --verbose
+
+update_version:
+	@echo "Updating the version of the project to the version specified in the version file"
+	@python update_version.py
