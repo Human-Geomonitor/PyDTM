@@ -1,7 +1,6 @@
 # PyDTM
 
 ![PyPI](https://img.shields.io/pypi/v/pydtm)
-![Build Status](https://img.shields.io/github/actions/workflow/status/Human-Geomonitor/PyDTM/publish-pypi.yml?branch=main)
 ![Documentation Status](https://readthedocs.org/projects/pydtm/badge/?version=latest)
 ![License](https://img.shields.io/github/license/Human-Geomonitor/PyDTM)
 
