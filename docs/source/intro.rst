@@ -13,6 +13,3 @@ Motivation for pydtm
 
 The DTM API is a powerful tool for accessing data from the IOM's Displacement Tracking Matrix, but it is not very user-friendly. ``pydtm`` is a python package wrapping IOM's DTM API which aims to allow researchers to easily access the data from a Python environment.
 
-
-
-
