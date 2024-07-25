@@ -10,7 +10,7 @@ name: Deploy Python Package to PyPi
 
 on:
   release:
-    types: [published,edited]
+    types: [published]
 
 permissions:
   contents: read
