@@ -10,6 +10,8 @@ name: Test Python Package Upload
 
 on:
   pull_request:
+    paths:
+      - 'src/**'  # Trigger the workflow only if changes are made in the src folder
     branches:
       - main
     types: [opened, synchronize, reopened]
