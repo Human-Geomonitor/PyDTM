@@ -12,7 +12,7 @@ A Python toolkit for [IOM's DTM API](https://dtm.iom.int/data-and-analysis/dtm-a
 
 ## Overview of the number of samples per countries at each administrative levels.
 
-![](samples_per_countries.png)
+![](https://github.com/Human-Geomonitor/PyDTM/blob/dev/samples_per_countries.png)
 
 
 ## Contributions
